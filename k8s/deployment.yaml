@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: jagan
-          image: venkatreddy3456/jagan:1.0
+          image: venkatreddy3456/ysjagan:2.0
           ports:
             - containerPort: 80
 ---
