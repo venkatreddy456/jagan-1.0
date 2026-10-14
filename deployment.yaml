@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jagan-deployment
+  labels:
+    app: jagan
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jagan
+  template:
+    metadata:
+      labels:
+        app: jagan
+    spec:
+      containers:
+        - name: jagan
+          image: venkatreddy3456/jagan:1.0
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jagan-service
+spec:
+  type: NodePort
+  selector:
+    app: jagan
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
